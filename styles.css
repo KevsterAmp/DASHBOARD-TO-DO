@@ -1,0 +1,584 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body{
+  display: flex;
+  background: #f8f0ff;
+  font-size: 17px;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 240px;
+  height: 100vh;
+  padding: 0 1.7rem;
+  color: white;
+  overflow: hidden;
+  transition: all 0.5s linear;
+  background: white;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  
+}
+
+.sidebar:hover{
+  width: 240px;
+  transition: 0.5s;
+}
+
+.menu {
+  height: 88%;
+  position: relative;
+  list-style: none;
+  bottom: 1rem;
+  padding-top: 5px;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  
+}
+
+.menu li {
+  padding: 1rem;
+  margin: 8px 0;
+  border-radius: 8px;
+  transition: all 0.5s ease-in-out;
+}
+
+.logo {
+  height: 70px;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-left: 3px;
+  padding-top: 20px;
+  padding-right:1rem;
+  padding-bottom: 20px;
+  color: #69665C;
+  overflow: hidden;
+  display: flex;
+  
+}
+
+.logoimg {
+  width: 42px;
+  height: 42px;
+  margin-right: 15px;
+}
+
+.logo h2 {
+  display: flex;
+  align-items: center;
+}
+
+.dash:hover, .dash{
+  background-color: #FFF9DE;
+}
+
+.personal:hover, #personal:active{
+  background-color: #D2CEFF;
+}
+
+.work:hover, .work:active{
+  background-color: #D1E5F7;
+}
+
+.school:hover, .school:active{
+  background-color: #FFCECE;
+}
+
+.coding:hover, .coding:active{
+  background-color: #DAF2D6;
+}
+
+.logout:hover {
+  background-color: gray;
+}
+
+.logout:hover span{
+  color: white;
+}
+
+.menu a {
+  color: #69665C;
+  font-size: 1rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.menu a span {
+  overflow: hidden;
+}
+
+.menu a i {
+  font-size: 1.2rem;
+}
+
+.fas.fa-user {
+  color: #FFB843;
+}
+
+.fas.fa-clipboard {
+  color: #7875A9;
+}
+
+.fas.fa-folder-open {
+  color: #7DA9D6;
+}
+
+.fas.fa-book {
+  color: #FF8E8E;
+}
+
+.fas.fa-laptop-code {
+  color: #7BC683;
+}
+
+.fa-solid.fa-arrow-right-from-bracket {
+  color: red;
+}
+
+.logout {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+}
+
+/* MAIN YUNG SA RIGHT */
+/* MAIN YUNG SA RIGHT */
+/* MAIN YUNG SA RIGHT */
+
+.main
+{
+  position: relative;
+  width: 100%;
+  padding: 1rem;
+  color: #69665C;
+}
+
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background: white;
+  border-radius: 10px;
+  padding: 10px 2rem;
+}
+
+.header-wrapper img {
+  max-width: 50px;
+  border-radius: 50%;
+}
+
+
+
+/* /////MAIN YUNG SA RIGHT */
+/* MAIN YUNG SA RIGHT */
+/* MAIN YUNG SA RIGHT */
+
+
+/*yung notes*/
+/* Add this CSS for the to-do cards */
+.todo-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.todo-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 280px;
+}
+
+.todo-card-footer {
+  text-align: right;
+  font-size: 1rem;
+}
+
+.todo-card-header h3 {
+  margin: 0;
+  max-width: 260px; 
+}
+
+.delete-btn {
+  cursor: pointer;
+  color: red;
+}
+.fas.fa-trash {
+  color: red;
+}
+.todo-text {
+  width: 100%;
+  border: none;
+  resize: none;
+  padding: 0;
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+
+/* POP UP PAG INADD */
+.popup-box{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  color: #69665C;
+}
+
+.popup-box .popup{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1000;
+  max-width: 700px;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  justify-content: center ;
+
+
+}
+
+.popup-box, .popup-box .popup {
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s ease;
+}
+
+.popup-box.show, .popup-box.show .popup {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.popup .content {
+  background: lavender;
+  border-radius: 15px;
+  width: calc(100% - 50px);
+  
+}
+
+.popup .content header {
+  padding: 15px 25px;
+  border-bottom: 1px solid #69665C;
+  
+}
+
+.content header p {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.content header i{
+  color: #69665C;
+  cursor: pointer;
+  font-size: 23px;
+}
+
+.content header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.content form {
+  margin: 15px 25px 20px;
+ 
+}
+.content form .row {
+  margin-bottom: 20px;
+
+}
+
+form .row label {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.content form :where(input, textarea, select){
+  width: 100%;
+  height: 50px;
+  outline: none;
+  font-size: 1rem;
+  padding: 0px 15px;
+  border-radius: 10px;
+}
+
+.content form textarea {
+  height: 150px;
+  resize: none;
+  padding: 8px 15px;
+}
+
+.content form button {
+  width: 100%;
+  height: 50px;
+  border: none;
+  background: #5D5A8C;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.popup {
+  display: flex;
+  justify-content: center;
+}
+
+
+/* ADD TASK */
+.addBox {
+  margin: 1rem 0;
+
+  background: #7875A9;
+  color: white;
+  text-align: center;
+  padding: .5rem;
+  border-radius: 10px;
+  justify-content: center; 
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.addBox:hover {
+  background: #5D5A8C;
+}
+
+.addBox:active {
+  transform: scale(1.01);
+}
+
+
+.add i {
+  font-size: 2rem;
+}
+
+.add p {
+  font-size: 0.8rem;
+}
+/* ADD TASK TAPOS */
+
+
+
+
+/* tags */
+.btn-radio {
+  display: inline-block;
+  
+}
+
+.btn-radio input[type="radio"] {
+    display:none;
+}
+
+.btn-radio input[type="radio"] + label span{
+    display:inline-block;
+    
+    height:100%;
+    margin-right: 5px;
+    
+    padding: 3px 7px;
+    vertical-align:middle;
+    cursor:pointer;
+    border-radius:  5px;
+    background-color: #fff;
+    font-size: 1rem;
+
+}
+.btn-radio input[type="radio"]:checked + label span{
+  background-color: #ccc;
+}
+
+
+.btn-radio i {
+  padding-right: 5px;
+}
+
+
+/* Kanban Board */
+.kanban-board {
+  display: flex;
+  
+  
+}
+
+.kanban-column {
+  flex: 1;
+  background-color: white;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+
+}
+.in-progress {
+  margin: 0 20px;
+}
+
+
+.kanban-column h5{
+  margin-bottom: 10px;
+  padding: 0 0 10px 0px;
+  border-bottom: 1px solid #69665C;
+  color: #69665C;
+}
+
+.kanban-cards {
+  min-height: 500px; /* Adjust the minimum height as needed */
+  
+}
+
+
+
+/* Kanban Card */
+
+
+.kanban-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.kanban-card .kanban-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: calc(100% - 24px);
+  position: relative;
+}
+
+.kanban-card-actions {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+
+
+.kanban-card h4 {
+  font-size: 1rem;
+  margin: 0;
+  padding-bottom: 10px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
+
+.kanban-board h5 {
+  font-size: 1.2rem;
+  
+}
+
+
+/* Style the edit icon within the .icons div */
+.kanban-card h4 .icons .edit-icon {
+  color: #7b83a4; /* Change the color as needed */
+  margin-right: 5px;
+}
+
+/* Style the delete icon within the .icons div */
+.kanban-card h4 .icons .delete-icon {
+  color: red; /* Change the color as needed */
+}
+
+.kanban-card p {
+  font-size: .8rem;
+  margin: 0;
+}
+
+.kanban-card-tag {
+  display: inline-block;
+  padding: 2px 5px;
+  border-radius: 4px;
+  color: white;
+  font-size: .8rem;
+  margin-top: 10px;
+}
+
+
+/* Define different styles for different card tags */
+.kanban-card.tag-Personal {
+  border-left: 3px solid #7875A9;
+  
+}
+
+.kanban-card.tag-Work {
+  border-left: 3px solid #7DA9D6;
+}
+
+.kanban-card.tag-School {
+  border-left: 3px solid #FF8E8E;
+}
+
+.kanban-card.tag-Coding {
+  border-left: 3px solid #7BC683;
+}
+
+/* Card Dragging Styles */
+.kanban-card.is-dragging {
+  opacity: 0.5;
+}
+
+/* Card Placeholder Styles */
+.kanban-card-placeholder {
+  background-color: #ddd;
+  height: 150px; /* Adjust the height as needed */
+  border: 1px dashed #333;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 768px) {
+  .kanban-board {
+    flex-direction: column;
+  }
+  .kanban-column {
+    width: 100%;
+  }
+
+  .in-progress {
+    margin: 20px 0;
+  }
+  .kanban-card{
+    width: 100%;
+    font-size: .5rem;
+  }
+  .sidebar {
+    width: 120px;
+  }
+
+  
+}
+.completed-card {
+  background-color: #f0f0f0; /* Change to the desired background color for completed cards */
+  text-decoration: line-through; /* Add a strikethrough effect */
+  opacity: 0.6; /* Reduce opacity to visually indicate completion */
+}
