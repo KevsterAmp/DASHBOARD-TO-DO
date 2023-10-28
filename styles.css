@@ -29,7 +29,6 @@ body{
   background: white;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-  
 }
 
 .sidebar:hover{
@@ -45,7 +44,6 @@ body{
   padding-top: 5px;
   margin-bottom: 2rem;
   margin-top: 2rem;
-  
 }
 
 .menu li {
@@ -67,7 +65,6 @@ body{
   color: #69665C;
   overflow: hidden;
   display: flex;
-  
 }
 
 .logoimg {
@@ -158,9 +155,6 @@ body{
 }
 
 /* MAIN YUNG SA RIGHT */
-/* MAIN YUNG SA RIGHT */
-/* MAIN YUNG SA RIGHT */
-
 .main
 {
   position: relative;
@@ -184,14 +178,6 @@ body{
   border-radius: 50%;
 }
 
-
-
-/* /////MAIN YUNG SA RIGHT */
-/* MAIN YUNG SA RIGHT */
-/* MAIN YUNG SA RIGHT */
-
-
-/*yung notes*/
 /* Add this CSS for the to-do cards */
 .todo-card {
   background-color: #fff;
@@ -219,13 +205,6 @@ body{
   max-width: 260px; 
 }
 
-.delete-btn {
-  cursor: pointer;
-  color: red;
-}
-.fas.fa-trash {
-  color: red;
-}
 .todo-text {
   width: 100%;
   border: none;
@@ -234,7 +213,6 @@ body{
   margin: 10px 0;
   font-size: 16px;
 }
-
 
 /* POP UP PAG INADD */
 .popup-box{
@@ -256,9 +234,7 @@ body{
   max-width: 700px;
   width: 100%;
   transform: translate(-50%, -50%);
-  justify-content: center ;
-
-
+  justify-content: center;
 }
 
 .popup-box, .popup-box .popup {
@@ -350,11 +326,9 @@ form .row label {
   justify-content: center;
 }
 
-
 /* ADD TASK */
 .addBox {
   margin: 1rem 0;
-
   background: #7875A9;
   color: white;
   text-align: center;
@@ -373,7 +347,6 @@ form .row label {
   transform: scale(1.01);
 }
 
-
 .add i {
   font-size: 2rem;
 }
@@ -381,50 +354,38 @@ form .row label {
 .add p {
   font-size: 0.8rem;
 }
-/* ADD TASK TAPOS */
-
-
-
 
 /* tags */
 .btn-radio {
   display: inline-block;
-  
 }
 
 .btn-radio input[type="radio"] {
-    display:none;
+  display:none;
 }
 
 .btn-radio input[type="radio"] + label span{
-    display:inline-block;
-    
-    height:100%;
-    margin-right: 5px;
-    
-    padding: 3px 7px;
-    vertical-align:middle;
-    cursor:pointer;
-    border-radius:  5px;
-    background-color: #fff;
-    font-size: 1rem;
-
+  display:inline-block;  
+  height:100%;
+  margin-right: 5px;
+  padding: 3px 7px;
+  vertical-align:middle;
+  cursor:pointer;
+  border-radius:  5px;
+  background-color: #fff;
+  font-size: 1rem;
 }
 .btn-radio input[type="radio"]:checked + label span{
   background-color: #ccc;
 }
 
-
 .btn-radio i {
   padding-right: 5px;
 }
 
-
 /* Kanban Board */
 .kanban-board {
   display: flex;
-  
-  
 }
 
 .kanban-column {
@@ -433,13 +394,10 @@ form .row label {
   border-radius: 8px;
   padding: 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  
-
 }
 .in-progress {
   margin: 0 20px;
 }
-
 
 .kanban-column h5{
   margin-bottom: 10px;
@@ -453,11 +411,7 @@ form .row label {
   
 }
 
-
-
 /* Kanban Card */
-
-
 .kanban-card {
   background-color: #f9f9f9;
   border: 1px solid #ddd;
@@ -482,8 +436,6 @@ form .row label {
   right: 5px;
 }
 
-
-
 .kanban-card h4 {
   font-size: 1rem;
   margin: 0;
@@ -502,12 +454,14 @@ form .row label {
 /* Style the edit icon within the .icons div */
 .kanban-card h4 .icons .edit-icon {
   color: #7b83a4; /* Change the color as needed */
-  margin-right: 5px;
+  margin-left: 5px;
 }
 
 /* Style the delete icon within the .icons div */
 .kanban-card h4 .icons .delete-icon {
   color: red; /* Change the color as needed */
+  cursor: pointer;
+  margin-left: 5px;
 }
 
 .kanban-card p {
@@ -528,7 +482,6 @@ form .row label {
 /* Define different styles for different card tags */
 .kanban-card.tag-Personal {
   border-left: 3px solid #7875A9;
-  
 }
 
 .kanban-card.tag-Work {
@@ -556,6 +509,7 @@ form .row label {
   border-radius: 8px;
   margin-bottom: 10px;
 }
+
 @media screen and (max-width: 768px) {
   .kanban-board {
     flex-direction: column;
@@ -574,11 +528,11 @@ form .row label {
   .sidebar {
     width: 120px;
   }
-
-  
 }
+
+/* for strikethrough */
 .completed-card {
-  background-color: #f0f0f0; /* Change to the desired background color for completed cards */
-  text-decoration: line-through; /* Add a strikethrough effect */
-  opacity: 0.6; /* Reduce opacity to visually indicate completion */
+  background-color: #f0f0f0; 
+  text-decoration: line-through; 
+  opacity: 0.6; 
 }

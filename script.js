@@ -14,12 +14,6 @@ const tagColors = {
   Coding: "#7BC683",
 };
 
-const status = {
-  Todo: "To do",
-  InProgress: "In progress",
-  Completed: "Completed",
-};
-
 let notes = JSON.parse(localStorage.getItem("tasks")) || [];
 
 function loadTasksFromLocalStorage() {
@@ -44,7 +38,6 @@ function loadTasksFromLocalStorage() {
     }
   });
 }
-
 
 window.addEventListener("load", loadTasksFromLocalStorage);
 
@@ -189,11 +182,8 @@ function generateUniqueId() {
   return Date.now().toString(36) + Math.random().toString(36).substring(2);
 }
 
-// Add this code after your existing JavaScript code
-
 const categoryLinks = document.querySelectorAll('.menu li');
 
-// Function to show/hide cards based on the selected category
 function filterCardsByCategory(selectedCategory) {
   const kanbanCards = document.querySelectorAll('.kanban-card');
   
@@ -206,24 +196,20 @@ function filterCardsByCategory(selectedCategory) {
     }
   });
 
-  // Update the header title to the selected category
   const headerTitle = document.querySelector('.header-title h2');
   headerTitle.textContent = selectedCategory;
 }
 
-// Add click event listeners to category links
 categoryLinks.forEach((link) => {
   link.addEventListener('click', (event) => {
     event.preventDefault();
     const selectedCategory = link.textContent.trim();
     
-    // Remove any active class from other links and add it to the selected link
     categoryLinks.forEach((categoryLink) => {
       categoryLink.classList.remove('active');
     });
     link.classList.add('active');
     
-    // Filter and show cards based on the selected category
     filterCardsByCategory(selectedCategory);
   });
 });
@@ -233,19 +219,16 @@ const homeCategoryLink = document.querySelector('.dash');
 homeCategoryLink.addEventListener('click', (event) => {
   event.preventDefault();
 
-  // Remove any active class from other links and add it to the "Home" link
   categoryLinks.forEach((categoryLink) => {
     categoryLink.classList.remove('active');
   });
   homeCategoryLink.classList.add('active');
 
-  // Show all task cards by setting their display property to 'block'
   const kanbanCards = document.querySelectorAll('.kanban-card');
   kanbanCards.forEach((card) => {
     card.style.display = 'block';
   });
 
-  // Update the header title to "Home"
   const headerTitle = document.querySelector('.header-title h2');
   headerTitle.textContent = 'Home';
 });
