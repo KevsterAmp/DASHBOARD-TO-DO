@@ -10,7 +10,7 @@
     <script src="https://kit.fontawesome.com/04558dcba4.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <!-- POP UP PAG DRINAG -->
+    <!-- new task -->
     <div class="popup-box">
         <div class="popup">
             <div class="content">
@@ -51,7 +51,51 @@
             </div>
         </div>
     </div>
-    <!-- DONE DRAG -->
+    <!-- DONE new task -->
+    <!-- Edit Task Popup -->
+<div class="popup-box edit-popup">
+    <div class="popup">
+        <div class="content">
+            <header>
+                <p>Edit Task</p>
+                <i class="fa-solid fa-circle-xmark close-edit-popup"></i>
+            </header>
+            <form action="#">
+                <div class="row title">
+                    <label for="edit-title">Title</label>
+                    <input id="edit-title" placeholder="Enter your updated title">
+                </div>
+                <div class="row description">
+                    <label for="edit-desc">Description</label>
+                    <textarea id="edit-desc" placeholder="Provide additional details..."></textarea>
+                </div>
+                <div class="row dropdown">
+                    <label>Tags</label>
+                    <div class="btn-radio" id="edit-radio">
+                        <input type="radio" id="edit-radio01" name="edit-radio"/>
+                        <label for="edit-radio01"><span><i class="fas fa-clipboard"></i>Personal</span></label>
+                    </div>
+                    <div class="btn-radio">
+                        <input type="radio" id="edit-radio02" name="edit-radio" />
+                        <label for="edit-radio02"><span><i class="fas fa-folder-open"></i>Work</span></label>
+                    </div>
+                    <div class="btn-radio">
+                        <input type="radio" id="edit-radio03" name="edit-radio" />
+                        <label for="edit-radio03"><span><i class="fas fa-book"></i>School</span></label>
+                    </div>
+                    <div class="btn-radio">
+                        <input type="radio" id="edit-radio04" name="edit-radio" />
+                        <label for="edit-radio04"><span><i class="fas fa-laptop-code"></i>Coding</span></label>
+                    </div>
+                </div>
+                
+                <button class="update-task">Update Task</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+    
 
     <div class="sidebar">
         <div class="logo">
