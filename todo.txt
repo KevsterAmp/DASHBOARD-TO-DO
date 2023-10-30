@@ -1,0 +1,8 @@
+- lagyan ng alert pag click nung delete icon
+- maglagay ng option to add or delete more column
+- maglagat ng option to add or delete tags
+- maglagay ng pampaganda don sa description like bold italic bullets 
+- ayusin yung log out di siya kasama sa ififilter
+- tanggalin na lang kaya yung signin/login feature 
+- 
+
