@@ -71,12 +71,13 @@ function createKanbanCard(task) {
 
   const cardTemplate = `
     <h4>${title}<div class="icons">
-      <i class="fas fa-edit edit-icon"></i> 
+      <i class="fas fa-edit edit-icon" onclick="editKanbanCard('${id}')"></i> 
       <i class="fas fa-trash-alt delete-icon" onclick="deleteKanbanCard('${id}')"></i>
     </div></h4>
     <p>${description}</p>
     <div class="kanban-card-tag" style="background-color: ${tagColor}">${tag}</div>
   `;
+
 
   card.innerHTML = cardTemplate;
 
@@ -232,4 +233,66 @@ homeCategoryLink.addEventListener('click', (event) => {
   const headerTitle = document.querySelector('.header-title h2');
   headerTitle.textContent = 'Home';
 });
-//DI KO MAAYOS YUNG EDIT SO TANGGALIN MUNA HEHE
+
+
+// Edit popup
+const editPopup = document.querySelector(".edit-popup");
+const editCloseIcon = editPopup.querySelector(".close-edit-popup");
+const editTitleTag = editPopup.querySelector("#edit-title");
+const editDescTag = editPopup.querySelector("#edit-desc");
+const editTagRadioButtons = document.querySelectorAll('input[name="edit-radio"]');
+const updateTaskBtn = editPopup.querySelector(".update-task");
+let currentEditingTaskId;
+
+// open edit popup details
+function openEditPopup(taskId) {
+  const taskToEdit = notes.find((task) => task.id === taskId);
+  if (taskToEdit) {
+    currentEditingTaskId = taskId;
+    editTitleTag.value = taskToEdit.title;
+    editDescTag.value = taskToEdit.description;
+    // Set the correct radio button based on the task's tag
+    editTagRadioButtons.forEach((radio) => {
+      if (radio.nextElementSibling.textContent.trim() === taskToEdit.tag) {
+        radio.checked = true;
+      }
+    });
+    editPopup.classList.add("show");
+  }
+}
+
+// update task with new details
+function updateTask() {
+  const editedTask = notes.find((task) => task.id === currentEditingTaskId);
+  if (editedTask) {
+    editedTask.title = editTitleTag.value;
+    editedTask.description = editDescTag.value;
+    
+    editTagRadioButtons.forEach((radio) => {
+      if (radio.checked) {
+        editedTask.tag = radio.nextElementSibling.textContent.trim();
+        editedTask.tagColor = tagColors[editedTask.tag];
+      }
+    });
+    localStorage.setItem("tasks", JSON.stringify(notes));
+    loadTasksFromLocalStorage();
+    editPopup.classList.remove("show");
+  }
+}
+
+
+updateTaskBtn.addEventListener("click", updateTask);
+editCloseIcon.addEventListener("click", () => editPopup.classList.remove("show"));
+
+
+kanbanColumns.forEach((column) => {
+  column.querySelector(".kanban-cards").addEventListener("click", (event) => {
+    const editButton = event.target.closest(".edit-icon");
+    if (editButton) {
+      const cardId = editButton.closest(".kanban-card").dataset.id;
+      openEditPopup(cardId);
+    }
+  });
+});
+
+
