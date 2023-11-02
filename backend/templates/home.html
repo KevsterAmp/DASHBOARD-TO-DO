@@ -1,0 +1,181 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoIt!</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <link rel="icon" type="png" href="{% static 'img/doit-removebg-preview.png' %}">
+    <!-- Font Awesome Cdn Link -->
+    <script src="https://kit.fontawesome.com/04558dcba4.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- new task -->
+    <div class="popup-box">
+        <div class="popup">
+            <div class="content">
+                <header>
+                    <p>New Task</p>
+                    <i class="fa-solid fa-circle-xmark"></i>
+                </header>
+                <form action="#">
+                    <div class="row title">
+                        <label for="title">Title</label>
+                        <input id="title" placeholder="Enter your to-do here">
+                    </div>
+                    <div class="row description">
+                        <label for="desc">Description</label>
+                        <textarea id="desc" placeholder="Provide additional details..."></textarea>
+                    </div>
+                    <div class="row dropdown">
+                        <label>Tags</label>
+                        <div class="btn-radio" id="radio">
+                            <input type="radio" id="radio01" name="radio"/>
+                            <label for="radio01"><span><i class="fas fa-clipboard"></i>Personal</span></label>
+                        </div>
+                        <div class="btn-radio">
+                            <input type="radio" id="radio02" name="radio" />
+                            <label for="radio02"><span><i class="fas fa-folder-open"></i>Work</span></label>
+                        </div>
+                        <div class="btn-radio">
+                            <input type="radio" id="radio03" name="radio" />
+                            <label for="radio03"><span><i class="fas fa-book"></i>School</span></label>
+                        </div>
+                        <div class="btn-radio">
+                            <input type="radio" id="radio04" name="radio" />
+                            <label for="radio04"><span><i class="fas fa-laptop-code"></i>Coding</span></label>
+                        </div>
+                    </div>
+                    <button>Add Task</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- DONE new task -->
+    <!-- Edit Task Popup -->
+<div class="popup-box edit-popup">
+    <div class="popup">
+        <div class="content">
+            <header>
+                <p>Edit Task</p>
+                <i class="fa-solid fa-circle-xmark close-edit-popup"></i>
+            </header>
+            <form action="#">
+                <div class="row title">
+                    <label for="edit-title">Title</label>
+                    <input id="edit-title" placeholder="Enter your updated title">
+                </div>
+                <div class="row description">
+                    <label for="edit-desc">Description</label>
+                    <textarea id="edit-desc" placeholder="Provide additional details..."></textarea>
+                </div>
+                <div class="row dropdown">
+                    <label>Tags</label>
+                    <div class="btn-radio" id="edit-radio">
+                        <input type="radio" id="edit-radio01" name="edit-radio"/>
+                        <label for="edit-radio01"><span><i class="fas fa-clipboard"></i>Personal</span></label>
+                    </div>
+                    <div class="btn-radio">
+                        <input type="radio" id="edit-radio02" name="edit-radio" />
+                        <label for="edit-radio02"><span><i class="fas fa-folder-open"></i>Work</span></label>
+                    </div>
+                    <div class="btn-radio">
+                        <input type="radio" id="edit-radio03" name="edit-radio" />
+                        <label for="edit-radio03"><span><i class="fas fa-book"></i>School</span></label>
+                    </div>
+                    <div class="btn-radio">
+                        <input type="radio" id="edit-radio04" name="edit-radio" />
+                        <label for="edit-radio04"><span><i class="fas fa-laptop-code"></i>Coding</span></label>
+                    </div>
+                </div>
+                
+                <button class="update-task">Update Task</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+    
+
+    <div class="sidebar">
+        <div class="logo">
+            <h2><img src="{% static 'img/doit-removebg-preview.png' %}" class="logoimg"><span>DoIt!</span></h2>
+        </div>
+        <ul class="menu">
+            <li class="dash">
+                <a href="#">
+                    <i class="fas fa-user"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li class="personal" id="personal" draggable="true">
+                <a href="#">
+                    <i class="fas fa-clipboard"></i>
+                    <span>Personal</span>
+                </a>
+            </li>
+            <li class="work">
+                <a href="#">
+                    <i class="fas fa-folder-open"></i>
+                    <span>Work</span>
+                </a>
+            </li>
+            <li class="school">
+                <a href="#">
+                    <i class="fas fa-book"></i>
+                    <span>School</span>
+                </a>
+            </li>
+            <li class="coding">
+                <a href="#">
+                    <i class="fas fa-laptop-code"></i>
+                    <span>Coding</span>
+                </a>
+            </li>
+            <li class="logout">
+                <a href="#">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Log out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- main sa right -->
+    <div class="main">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <h2>Home</h2>
+            </div>
+            <img src="{% static 'img/rimuru.jpg' %}" alt="">
+        </div>
+   
+        <!-- BUTTON PARA SA ADD -->
+        <div class="addBox">
+            <i class="fa-solid fa-plus"></i>
+            <p>Add Task</p>
+        </div>
+
+        <div class="kanban-board">
+            <!-- To Do Column -->
+            <div class="kanban-column" id="todo-column">
+                <h5>To do</h5>
+                <div class="kanban-cards" id="todo-cards"></div>
+            </div>
+            <!-- In Progress Column -->
+            <div class="kanban-column in-progress" id="inprogress-column">
+                <h5>In progress</h5>
+                <div class="kanban-cards" id="inprogress-cards"></div>
+            </div>
+            <!-- Completed Column -->
+            <div class="kanban-column" id="completed-column">
+                <h5>Completed</h5>
+                <div class="kanban-cards" id="completed-cards"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>
