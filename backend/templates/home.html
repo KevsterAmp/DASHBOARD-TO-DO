@@ -134,10 +134,18 @@
                 </a>
             </li>
             <li class="logout">
-                <a href="#">
+                {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
                     <span>Log out</span>
                 </a>
+                {% else %}
+                <a href="{% url 'login' %}">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Log In</span>
+                {% endif %}
+                </a>
+
             </li>
         </ul>
     </div>
@@ -146,7 +154,11 @@
     <div class="main">
         <div class="header-wrapper">
             <div class="header-title">
-                <h2>Home</h2>
+                {% if user.is_authenticated %}
+                <h2>Hello, {{ user.username }}</h2>
+                {% else %}
+                <h2>You are not logged in</h2>
+                {% endif %}
             </div>
             <img src="{% static 'img/rimuru.jpg' %}" alt="">
         </div>

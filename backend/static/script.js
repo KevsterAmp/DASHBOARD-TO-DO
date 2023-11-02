@@ -183,7 +183,7 @@ function generateUniqueId() {
   return Date.now().toString(36) + Math.random().toString(36).substring(2);
 }
 
-const categoryLinks = document.querySelectorAll('.menu li');
+const categoryLinks = document.querySelectorAll('.menu li:not(.logout)');
 
 function filterCardsByCategory(selectedCategory) {
   const kanbanCards = document.querySelectorAll('.kanban-card');
@@ -204,6 +204,7 @@ function filterCardsByCategory(selectedCategory) {
 categoryLinks.forEach((link) => {
   link.addEventListener('click', (event) => {
     event.preventDefault();
+    event.stopPropagation(); 
     const selectedCategory = link.textContent.trim();
     
     categoryLinks.forEach((categoryLink) => {
