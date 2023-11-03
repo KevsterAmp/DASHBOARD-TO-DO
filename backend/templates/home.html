@@ -179,7 +179,23 @@
             <!-- To Do Column -->
             <div class="kanban-column" id="todo-column">
                 <h5>To do</h5>
-                <div class="kanban-cards" id="todo-cards"></div>
+                <div class="kanban-cards" id="todo-cards">
+                    {% for todo in todo_list %}
+                    <div class="kanban-card">
+                        <h4>
+                            {{ todo.title }}
+                            <div class="icons">
+                                <i class="fas fa-edit edit-icon" onclick="window.location.href='#'"></i> 
+                                <i class="fas fa-trash-alt delete-icon" onclick="window.location.href='#'"></i>
+                            </div>
+                        </h4>
+                        <p>{{ todo.description }}</p>
+                        <div class="kanban-card-tag" style="background-color: {{ todo.tag_color }}">
+                            {{ todo.tag}}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
             <!-- In Progress Column -->
             <div class="kanban-column in-progress" id="inprogress-column">
