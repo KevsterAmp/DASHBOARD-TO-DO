@@ -133,20 +133,26 @@
                     <span>Coding</span>
                 </a>
             </li>
-            <li class="logout">
-                {% if user.is_authenticated %}
+            {% if user.is_authenticated %}
+            <li class="logout auth">
                 <a href="{% url 'logout' %}">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
                     <span>Log out</span>
                 </a>
-                {% else %}
-                <a href="{% url 'login' %}">
-                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                    <span>Log In</span>
-                {% endif %}
-                </a>
-
             </li>
+            {% else %}
+            <li class="login auth">
+                <a href="{% url 'login' %}">
+                    <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    <span>Log In </span>
+                </a>
+            </li>
+            <li class="signup auth">
+                <a href="{% url 'signup' %}">
+                    <i class="fa-solid fa-user-plus fa-2xs"></i>
+                    <span>Sign Up </span>
+                </a>
+            {% endif %}
         </ul>
     </div>
 

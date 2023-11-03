@@ -98,11 +98,11 @@ body{
   background-color: #DAF2D6;
 }
 
-.logout:hover {
+.logout:hover, .login:hover, .signup:hover{
   background-color: gray;
 }
 
-.logout:hover span{
+.logout:hover span, .login:hover span, .signup:hover span{
   color: white;
 }
 
@@ -113,6 +113,10 @@ body{
   display: flex;
   align-items: center;
   gap: 1.5rem;
+}
+
+.menu li.signup a {
+  gap: 1.2rem;
 }
 
 .menu a span {
@@ -147,7 +151,29 @@ body{
   color: red;
 }
 
+.fa-solid.fa-arrow-right-to-bracket {
+  color: green;
+}
+
+.fa-solid.fa-user-plus {
+  color: blue;
+}
+
 .logout {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+}
+
+.login {
+  position: absolute;
+  bottom: 80px;
+  left: 0;
+  width: 100%;
+}
+
+.signup {
   position: absolute;
   bottom: 20px;
   left: 0;
