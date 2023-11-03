@@ -181,7 +181,7 @@
                 <h5>To do</h5>
                 <div class="kanban-cards" id="todo-cards">
                     {% for todo in todo_list %}
-                    <div class="kanban-card">
+                    <div class="kanban-card" id="{{ todo.id }}">
                         <h4>
                             {{ todo.title }}
                             <div class="icons">

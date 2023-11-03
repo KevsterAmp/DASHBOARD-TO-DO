@@ -38,6 +38,17 @@ py manage.py runserver
 
 
 ## TODO
+- TodoCreateView
+- TodoEditView
+- Delete logic
+- re-implement javascript for tag filter and drag and drop
 - Only users that created their tasks can access and see them
 - Redirect to login site when not logged in
 - Improve login, signup website
+
+
+## Server Logic
+- creating, editing, deleting todos handled by Django
+- filtering on different tags, drag and drop, handled by js
+
+
