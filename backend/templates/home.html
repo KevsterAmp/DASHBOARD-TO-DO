@@ -181,6 +181,7 @@
                 <h5>To do</h5>
                 <div class="kanban-cards" id="todo-cards">
                     {% for todo in todo_list %}
+                    {% if todo.status == "todo" and user == todo.author %} 
                     <div class="kanban-card" id="{{ todo.id }}">
                         <h4>
                             {{ todo.title }}
@@ -194,18 +195,55 @@
                             {{ todo.tag}}
                         </div>
                     </div>
+                    {% endif %}
                     {% endfor %}
                 </div>
             </div>
             <!-- In Progress Column -->
             <div class="kanban-column in-progress" id="inprogress-column">
-                <h5>In progress</h5>
-                <div class="kanban-cards" id="inprogress-cards"></div>
+                <h5>In progress </h5>
+                <div class="kanban-cards" id="inprogress-cards">
+                    {% for todo in todo_list %}
+                    {% if todo.status == "inprogress" and user == todo.author %}
+                    <div class="kanban-card" id="{{ todo.id }}">
+                        <h4>
+                            {{ todo.title }}
+                            <div class="icons">
+                                <i class="fas fa-edit edit-icon" onclick="window.location.href='#'"></i> 
+                                <i class="fas fa-trash-alt delete-icon" onclick="window.location.href='#'"></i>
+                            </div>
+                        </h4>
+                        <p>{{ todo.description }}</p>
+                        <div class="kanban-card-tag" style="background-color: {{ todo.tag_color }}">
+                            {{ todo.tag}}
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
             </div>
             <!-- Completed Column -->
             <div class="kanban-column" id="completed-column">
                 <h5>Completed</h5>
-                <div class="kanban-cards" id="completed-cards"></div>
+                <div class="kanban-cards" id="completed-cards">
+                    {% for todo in todo_list %}
+                    {% if todo.status == "completed" and user == todo.author %}
+                    <div class="kanban-card" id="{{ todo.id }}">
+                        <h4>
+                            {{ todo.title }}
+                            <div class="icons">
+                                <i class="fas fa-edit edit-icon" onclick="window.location.href='#'"></i> 
+                                <i class="fas fa-trash-alt delete-icon" onclick="window.location.href='#'"></i>
+                            </div>
+                        </h4>
+                        <p>{{ todo.description }}</p>
+                        <div class="kanban-card-tag" style="background-color: {{ todo.tag_color }}">
+                            {{ todo.tag}}
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
