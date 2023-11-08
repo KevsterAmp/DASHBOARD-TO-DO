@@ -43,7 +43,6 @@ class TodosEditView(UpdateView):
         "title",
         "description",
         "tag",
-        "status",
     )
     template_name = "todos_edit.html"
 

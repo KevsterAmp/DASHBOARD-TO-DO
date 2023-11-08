@@ -1,0 +1,63 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoIt</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'todos_edit.css' %}">
+    <link rel="icon" type="png" href="{% static 'img/doit-removebg-preview.png' %}">
+    <!-- Font Awesome Cdn Link -->
+    <script src="https://kit.fontawesome.com/04558dcba4.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Edit Task Popup -->
+    <div class="popup-box edit-popup">
+        <div class="popup">
+            <div class="content">
+                <header>
+                    <p>Edit Task</p>
+                    <a href="{% url 'home' %}">
+                        <i class="fa-solid fa-circle-xmark close-edit-popup"></i>
+                    </a>
+                </header>
+                <form method="POST">
+                    {% csrf_token %}
+                    <!-- {{ form.as_p }} -->
+                    <div class="row title">
+                        <label for="edit-title">Title</label>
+                        <input id="edit-title" name="title" value="{{ todo.title }}">
+                    </div>
+                    <div class="row description">
+                        <label for="edit-desc">Description</label>
+                        <textarea id="edit-desc" name="description">{{ todo.description }}</textarea>
+                    </div>
+                    <div class="row dropdown">
+                        <label>Tags</label>
+                        <div class="btn-radio" id="edit-radio">
+                            <div class="btn-radio">
+                                <input type="radio" id="edit-radio01" name="tag" value="Personal" {% if todo.tag == "Personal" %}checked{% endif %} />
+                                <label for="edit-radio01"><span><i class="fas fa-clipboard"></i>Personal</span></label>
+                            </div>
+                            <div class="btn-radio">
+                                <input type="radio" id="edit-radio02" name="tag" value="Work" {% if todo.tag == "Work" %}checked{% endif %} />
+                                <label for="edit-radio02"><span><i class="fas fa-folder-open"></i>Work</span></label>
+                            </div>
+                            <div class="btn-radio">
+                                <input type="radio" id="edit-radio03" name="tag" value="School" {% if todo.tag == "School" %}checked{% endif %} />
+                                <label for="edit-radio03"><span><i class="fas fa-book"></i>School</span></label>
+                            </div>
+                            <div class="btn-radio">
+                                <input type="radio" id="edit-radio04" name="tag" value="Coding" {% if todo.tag == "Coding" %}checked{% endif %} />
+                                <label for="edit-radio04"><span><i class="fas fa-laptop-code"></i>Coding</span></label>
+                            </div>
+                        </div>
+                    </div>
+                    <button><input type="submit" value="Update Task"></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

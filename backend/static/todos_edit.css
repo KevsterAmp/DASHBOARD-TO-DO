@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body{
+  display: flex;
+  background: #f8f0ff;
+  font-size: 17px;
+}
+
+.fas.fa-clipboard {
+  color: #7875A9;
+}
+
+.fas.fa-folder-open {
+  color: #7DA9D6;
+}
+
+.fas.fa-book {
+  color: #FF8E8E;
+}
+
+.fas.fa-laptop-code {
+  color: #7BC683;
+}
+
+
+/* POP UP PAG INADD */
+.popup-box{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  color: #69665C;
+}
+
+.popup-box .popup{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1000;
+  max-width: 700px;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  justify-content: center;
+}
+
+.popup-box, .popup-box .popup {
+  opacity: 1;
+}
+
+.popup .content {
+  background: lavender;
+  border-radius: 15px;
+  width: calc(100% - 50px);
+  
+}
+
+.popup .content header {
+  padding: 15px 25px;
+  border-bottom: 1px solid #69665C;
+  
+}
+
+.content header p {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.content header i{
+  color: #69665C;
+  cursor: pointer;
+  font-size: 23px;
+}
+
+.content header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.content form {
+  margin: 15px 25px 20px;
+ 
+}
+.content form .row {
+  margin-bottom: 20px;
+
+}
+
+form .row label {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.content form :where(input, textarea, select){
+  width: 100%;
+  height: 50px;
+  outline: none;
+  font-size: 1rem;
+  padding: 0px 15px;
+  border-radius: 10px;
+}
+
+.content form textarea {
+  height: 150px;
+  resize: none;
+  padding: 8px 15px;
+}
+
+.content form button {
+  width: 100%;
+  height: 50px;
+  border: none;
+  background: #5D5A8C;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.popup {
+  display: flex;
+  justify-content: center;
+}
+
+/* ADD TASK */
+.addBox {
+  margin: 1rem 0;
+  background: #7875A9;
+  color: white;
+  text-align: center;
+  padding: .5rem;
+  border-radius: 10px;
+  justify-content: center; 
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+/* tags */
+.btn-radio {
+  display: inline-block;
+}
+
+.btn-radio input[type="radio"] {
+  display:none;
+}
+
+.btn-radio input[type="radio"] + label span{
+  display:inline-block;  
+  height:100%;
+  margin-right: 5px;
+  padding: 3px 7px;
+  vertical-align:middle;
+  cursor:pointer;
+  border-radius:  5px;
+  background-color: #fff;
+  font-size: 1rem;
+}
+.btn-radio input[type="radio"]:checked + label span{
+  background-color: #ccc;
+}
+
+.btn-radio i {
+  padding-right: 5px;
+}

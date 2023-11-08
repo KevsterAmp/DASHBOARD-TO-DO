@@ -116,7 +116,7 @@
                         </div>
                     </div>
                     {% endif %}
-                    {% endfor %}
+                    {% endfor %}    
                 </div>
             </div>
             <!-- In Progress Column -->
@@ -129,7 +129,9 @@
                         <h4>
                             {{ todo.title }}
                             <div class="icons">
-                                <i class="fas fa-edit edit-icon" onclick="window.location.href='#'"></i> 
+                                <a href="{% url 'todos_edit' todo.id %}">
+                                    <i class="fas fa-edit edit-icon" onclick="window.location.href='#'"></i> 
+                                </a>
                                 <form method="POST" action="{% url 'todo_delete' todo.id %}" class="form-delete">
                                     {% csrf_token %}
                                     <button type="submit">
