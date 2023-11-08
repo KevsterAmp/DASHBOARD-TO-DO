@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, View, FormView
+from django.views.decorators.http import require_POST
+from django.shortcuts import get_object_or_404, redirect
 from django.shortcuts import render, redirect
+
 from .forms import TodoForm
 from .models import Todo
 
@@ -30,13 +33,8 @@ class TodosCreateView(View):
             todo.author = request.user
             todo.status = "todo"
             todo.save()
-            print(todo.author)
-            print(todo.title)
-            print(todo.description)
-            print(todo.tag)
             return redirect('home')
-        else:
-            return render(request, 'todos_create.html', {'form': form})
+        return render(request, 'todos_create.html', {'form': form})
 
 
 class TodosEditView(UpdateView):
@@ -49,3 +47,8 @@ class TodosEditView(UpdateView):
     )
     template_name = "todos_edit.html"
 
+@require_POST
+def todo_delete(request, todo_id):
+    todo = get_object_or_404(Todo, id=todo_id)
+    todo.delete()
+    return redirect('home')

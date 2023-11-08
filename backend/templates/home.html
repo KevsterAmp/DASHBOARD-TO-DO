@@ -102,7 +102,12 @@
                             {{ todo.title }}
                             <div class="icons">
                                 <i class="fas fa-edit edit-icon" onclick="window.location.href='#'"></i> 
-                                <i class="fas fa-trash-alt delete-icon" onclick="window.location.href='#'"></i>
+                                <form method="POST" action="{% url 'todo_delete' todo.id %}" class="form-delete">
+                                    {% csrf_token %}
+                                    <button type="submit">
+                                        <i class="fas fa-trash-alt delete-icon" onclick="window.location.href='#'"></i>
+                                    </button>
+                                </form>
                             </div>
                         </h4>
                         <p>{{ todo.description }}</p>
@@ -125,7 +130,12 @@
                             {{ todo.title }}
                             <div class="icons">
                                 <i class="fas fa-edit edit-icon" onclick="window.location.href='#'"></i> 
-                                <i class="fas fa-trash-alt delete-icon" onclick="window.location.href='#'"></i>
+                                <form method="POST" action="{% url 'todo_delete' todo.id %}" class="form-delete">
+                                    {% csrf_token %}
+                                    <button type="submit">
+                                        <i class="fas fa-trash-alt delete-icon" onclick="window.location.href='#'"></i>
+                                    </button>
+                                </form>
                             </div>
                         </h4>
                         <p>{{ todo.description }}</p>
@@ -148,7 +158,12 @@
                             {{ todo.title }}
                             <div class="icons">
                                 <i class="fas fa-edit edit-icon" onclick="window.location.href='#'"></i> 
-                                <i class="fas fa-trash-alt delete-icon" onclick="window.location.href='#'"></i>
+                                <form method="POST" action="{% url 'todo_delete' todo.id %}" class="form-delete">
+                                    {% csrf_token %}
+                                    <button type="submit">
+                                        <i class="fas fa-trash-alt delete-icon" onclick="window.location.href='#'"></i>
+                                    </button>
+                                </form>
                             </div>
                         </h4>
                         <p>{{ todo.description }}</p>
