@@ -14,32 +14,6 @@
 //   Coding: "#7BC683",
 // };
 
-// let notes = JSON.parse(localStorage.getItem("tasks")) || [];
-
-// function loadTasksFromLocalStorage() {
-//   // Clear existing cards
-//   kanbanColumns.forEach((column) => {
-//     column.querySelector(".kanban-cards").innerHTML = "";
-//   });
-
-//   // Load tasks from localStorage
-//   notes = JSON.parse(localStorage.getItem("tasks")) || [];
-
-//   // Create cards based on loaded tasks
-//   notes.forEach((task) => {
-//     createKanbanCard(task);
-
-//     // Check if the task is completed and apply the completed-card class
-//     if (task.status === "Completed") {
-//       const card = document.querySelector(`[data-id="${task.id}"]`);
-//       if (card) {
-//         card.classList.add("completed-card");
-//       }
-//     }
-//   });
-// }
-
-// window.addEventListener("load", loadTasksFromLocalStorage);
 
 // addBox.addEventListener("click", () => {
 //   popupBox.classList.add("show");
@@ -49,53 +23,7 @@
 //   popupBox.classList.remove("show");
 // });
 
-// function deleteKanbanCard(cardId) {
-//   const cardToDelete = document.querySelector(`[data-id="${cardId}"]`);
-//   if (cardToDelete) {
-//     cardToDelete.remove();
-//   }
 
-//   notes = notes.filter((task) => task.id !== cardId);
-//   localStorage.setItem("tasks", JSON.stringify(notes));
-// }
-
-// function createKanbanCard(task) {
-//   const { title, description, tag, tagColor, status, id } = task;
-//   const card = document.createElement("div");
-//   const tagClassName = `tag-${tag.replace(/\s/g, "-")}`; // Replace spaces with hyphens
-//   card.classList.add("kanban-card");
-//   card.classList.add(tagClassName);
-//   card.draggable = true;
-//   card.dataset.tag = tag;
-//   card.dataset.id = id || generateUniqueId();
-
-//   const cardTemplate = `
-//     <h4>${title}<div class="icons">
-//       <i class="fas fa-edit edit-icon" onclick="editKanbanCard('${id}')"></i> 
-//       <i class="fas fa-trash-alt delete-icon" onclick="deleteKanbanCard('${id}')"></i>
-//     </div></h4>
-//     <p>${description}</p>
-//     <div class="kanban-card-tag" style="background-color: ${tagColor}">${tag}</div>
-//   `;
-
-
-//   card.innerHTML = cardTemplate;
-
-//   const targetColumn = Array.from(kanbanColumns).find(
-//     (column) => column.querySelector("h5").textContent.trim() === task.status
-//   );
-
-//   if (targetColumn) {
-//     targetColumn.querySelector(".kanban-cards").appendChild(card);
-//   } else {
-//     const todoColumn = kanbanColumns[0];
-//     todoColumn.querySelector(".kanban-cards").appendChild(card);
-//   }
-
-//   card.addEventListener("dragstart", (e) => {
-//     e.dataTransfer.setData("text/plain", card.dataset.id);
-//   });
-// }
 
 // function moveKanbanCard(cardId, newStatus) {
 //   const cardToMove = document.querySelector(`[data-id="${cardId}"]`);

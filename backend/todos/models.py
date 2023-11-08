@@ -5,9 +5,16 @@ from django.urls import reverse
 
 # Create your models here.
 class Todo(models.Model):
+    TAG_CHOICES = [
+        ('Personal', 'Personal'),
+        ('Work', 'Work'),
+        ('School', 'School'),
+        ('Coding', 'Coding'),
+    ]
+
+    tag = models.CharField(max_length=10, choices=TAG_CHOICES, default='Personal')
     title = models.CharField(max_length=90)
     description = models.TextField()
-    tag = models.CharField(max_length=40)
     tag_color = models.CharField(max_length=20)
     status = models.CharField(max_length=20)
     author = models.ForeignKey(

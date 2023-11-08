@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoIt</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'todos_create.css' %}">
+    <link rel="icon" type="png" href="{% static 'img/doit-removebg-preview.png' %}">
+    <!-- Font Awesome Cdn Link -->
+    <script src="https://kit.fontawesome.com/04558dcba4.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- new task -->
+    <div class="popup-box">
+        <div class="popup">
+            <div class="content">
+                <header>
+                    <p>New Task</p>
+                    <a href="{% url 'home' %}">
+                        <i class="fa-solid fa-circle-xmark"></i>
+                    </a>
+                </header>
+                <form method="POST">
+                    {% csrf_token %}
+                    <!-- {{ form.as_p }} -->
+                    <div class="row title">
+                        <label for="title">Title</label>
+                        <input type="text" id="title" placeholder="Enter your to-do here" name="title">
+                    </div>
+                    <div class="row description">
+                        <label for="desc">Description</label>
+                        <textarea id="desc" placeholder="Provide additional details..." name="description"></textarea>
+                    </div>
+                    <div class="row dropdown">
+                        <label>Tags</label>
+                        <div class="btn-radio" id="radio">
+                            <input type="radio" id="radio01" name="tag" value="Personal">
+                            <label for="radio01">
+                                <span><i class="fas fa-clipboard"></i>Personal</span></label>
+                        </div>
+                        <div class="btn-radio">
+                            <input type="radio" id="radio02" name="tag" value="Work">
+                            <label for="radio02"><span><i class="fas fa-folder-open"></i>Work</span></label>
+                        </div>
+                        <div class="btn-radio">
+                            <input type="radio" id="radio03" name="tag" value="School">
+                            <label for="radio03"><span><i class="fas fa-book"></i>School</span></label>
+                        </div>
+                        <div class="btn-radio">
+                            <input type="radio" id="radio04" name="tag" value="" value="Coding">
+                            <label for="radio04"><span><i class="fas fa-laptop-code"></i>Coding</span></label>
+                        </div>
+                    </div>
+                    <button><input type="submit" value="Add Task"></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
