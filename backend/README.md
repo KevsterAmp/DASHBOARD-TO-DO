@@ -38,12 +38,13 @@ py manage.py runserver
 
 
 ## TODO
-- TodoCreateView
-- TodoEditView
-- Delete logic
-- re-implement javascript for tag filter and drag and drop
-- Redirect to login site when not logged in
+- TodoCreateView - almost done (fix add task button styling)
+- TodoEditView - almost done (fix add task button styling)
+- Delete logic - DONE
+- Add arrows per kanban card to change status from todo, inprogress, complete
 - Improve login, signup website
+- Redirect to login site when not logged in
+- re-implement javascript for tag filter
 
 
 ## Server Logic
