@@ -38,8 +38,8 @@ py manage.py runserver
 
 
 ## TODO
-- TodoCreateView - almost done (fix add task button styling)
-- TodoEditView - almost done (fix add task button styling)
+- TodoCreateView - DONE
+- TodoEditView - DONE
 - Delete logic - DONE
 - Add arrows per kanban card to change status from todo, inprogress, complete
 - Improve login, signup website

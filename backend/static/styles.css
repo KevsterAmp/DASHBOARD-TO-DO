@@ -512,7 +512,7 @@ button {
 
 /* Style the delete icon within the .icons div */
 .kanban-card h4 .icons .delete-icon {
-  color: blue; /* Change the color as needed */
+  color: red; /* Change the color as needed */
   cursor: pointer;
   margin-left: 5px;
 }
