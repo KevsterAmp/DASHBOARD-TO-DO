@@ -51,3 +51,10 @@ def todo_delete(request, todo_id):
     todo = get_object_or_404(Todo, id=todo_id)
     todo.delete()
     return redirect('home')
+
+@require_POST
+def todo_change_status(request, todo_id, status):
+    todo = get_object_or_404(Todo, id=todo_id)
+    todo.status = status
+    todo.save()
+    return redirect('home')

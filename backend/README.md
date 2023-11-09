@@ -41,7 +41,7 @@ py manage.py runserver
 - TodoCreateView - DONE
 - TodoEditView - DONE
 - Delete logic - DONE
-- Add arrows per kanban card to change status from todo, inprogress, complete
+- Add arrows per kanban card to change status from todo, inprogress, complete - DONE
 - Improve login, signup website
 - Redirect to login site when not logged in
 - re-implement javascript for tag filter

@@ -113,8 +113,19 @@
                             </div>
                         </h4>
                         <p>{{ todo.description }}</p>
-                        <div class="kanban-card-tag" style="background-color: {{ todo.tag_color }}">
-                            {{ todo.tag}}
+                        <div class="kanban-card-lower-part">
+                            <div class="kanban-card-tag" style="background-color: {{ todo.tag_color }}">
+                                {{ todo.tag}}
+                            </div>
+
+                            <div class="icons">
+                                <form method="POST" action="{% url 'todo_change_status' todo.id 'inprogress' %}" class="form-delete">
+                                    {% csrf_token %}
+                                    <button type="submit">
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                     {% endif %}
@@ -143,8 +154,25 @@
                             </div>
                         </h4>
                         <p>{{ todo.description }}</p>
-                        <div class="kanban-card-tag" style="background-color: {{ todo.tag_color }}">
-                            {{ todo.tag}}
+                        <div class="kanban-card-lower-part">
+                            <div class="kanban-card-tag" style="background-color: {{ todo.tag_color }}">
+                                {{ todo.tag}}
+                            </div>
+
+                            <div class="icons">
+                                <form method="POST" action="{% url 'todo_change_status' todo.id 'todo' %}" class="form-delete">
+                                    {% csrf_token %}
+                                    <button type="submit">
+                                        <i class="fa-solid fa-arrow-left"></i>
+                                    </button>
+                                </form>
+                                <form method="POST" action="{% url 'todo_change_status' todo.id 'completed' %}" class="form-delete">
+                                    {% csrf_token %}
+                                    <button type="submit">
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </button>
+                                </form>                            
+                            </div>
                         </div>
                     </div>
                     {% endif %}
@@ -171,8 +199,19 @@
                             </div>
                         </h4>
                         <p>{{ todo.description }}</p>
-                        <div class="kanban-card-tag" style="background-color: {{ todo.tag_color }}">
-                            {{ todo.tag}}
+                        <div class="kanban-card-lower-part">
+                            <div class="kanban-card-tag" style="background-color: {{ todo.tag_color }}">
+                                {{ todo.tag}}
+                            </div>
+
+                            <div class="icons">
+                                <form method="POST" action="{% url 'todo_change_status' todo.id 'inprogress' %}" class="form-delete">
+                                    {% csrf_token %}
+                                    <button type="submit">
+                                        <i class="fa-solid fa-arrow-left"></i>
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                     {% endif %}
