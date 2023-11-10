@@ -44,7 +44,11 @@ py manage.py runserver
 - Add arrows per kanban card to change status from todo, inprogress, complete - DONE
 - Improve login, signup website
 - Redirect to login site when not logged in - DONE 
-- re-implement javascript for tag filter
+- re-implement javascript for tag filter - DONE
+
+## Bugs to be fixed
+- Tags not changing color when edited - DONE
+- Edit button not working on completed column - DONE
 
 
 ## Server Logic

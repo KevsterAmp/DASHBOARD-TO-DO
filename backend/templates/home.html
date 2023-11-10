@@ -156,7 +156,7 @@
                         <p>{{ todo.description }}</p>
                         <div class="kanban-card-lower-part">
                             <div class="kanban-card-tag" style="background-color: {{ todo.tag_color }}">
-                                {{ todo.tag}}
+                                {{ todo.tag }}
                             </div>
 
                             <div class="icons">
@@ -189,7 +189,9 @@
                         <h4>
                             {{ todo.title }}
                             <div class="icons">
-                                <i class="fas fa-edit edit-icon" onclick="window.location.href='#'"></i> 
+                                <a href="{% url 'todos_edit' todo.id %}">
+                                    <i class="fas fa-edit edit-icon" onclick="window.location.href='#'"></i> 
+                                </a>                                
                                 <form method="POST" action="{% url 'todo_delete' todo.id %}" class="form-delete">
                                     {% csrf_token %}
                                     <button type="submit">

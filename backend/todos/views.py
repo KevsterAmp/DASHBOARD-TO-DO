@@ -24,13 +24,6 @@ class TodosCreateView(LoginRequiredMixin, View):
         if form.is_valid():
             print("form is valid")
             todo = form.save(commit=False)
-            tag_colors = {  
-                "Personal": "#7875A9",
-                "Work": "#7DA9D6",
-                "School": "#FF8E8E",
-                "Coding": "#7BC683",
-            }
-            todo.tag_color = tag_colors[todo.tag] 
             todo.author = request.user
             todo.status = "todo"
             todo.save()
@@ -45,7 +38,19 @@ class TodosEditView(LoginRequiredMixin, UpdateView):
         "description",
         "tag",
     )
+
+    tag_colors = {  
+    "Personal": "#7875A9",
+    "Work": "#7DA9D6",
+    "School": "#FF8E8E",
+    "Coding": "#7BC683",
+    }
     template_name = "todos_edit.html"
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['tag_color'] = self.tag_colors.get(self.object.tag, '#000000')  # default color if tag not found
+        return context
+
 
 @login_required
 @require_POST
@@ -53,6 +58,7 @@ def todo_delete(request, todo_id):
     todo = get_object_or_404(Todo, id=todo_id)
     todo.delete()
     return redirect('home')
+
 
 @login_required
 @require_POST
