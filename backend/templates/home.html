@@ -16,7 +16,7 @@
             <h2><img src="{% static 'img/doit-removebg-preview.png' %}" class="logoimg"><span>DoIt!</span></h2>
         </div>
         <ul class="menu">
-            <li class="dash">
+            <li class="dash active">
                 <a href="#">
                     <i class="fas fa-user"></i>
                     <span>Home</span>
@@ -97,7 +97,7 @@
                 <div class="kanban-cards" id="todo-cards">
                     {% for todo in todo_list %}
                     {% if todo.status == "todo" and user == todo.author %} 
-                    <div class="kanban-card" id="{{ todo.id }}">
+                    <div class="kanban-card" id="{{ todo.id }}" data-tag="{{ todo.tag }}">
                         <h4>
                             {{ todo.title }}
                             <div class="icons">
@@ -138,7 +138,7 @@
                 <div class="kanban-cards" id="inprogress-cards">
                     {% for todo in todo_list %}
                     {% if todo.status == "inprogress" and user == todo.author %}
-                    <div class="kanban-card" id="{{ todo.id }}">
+                    <div class="kanban-card" id="{{ todo.id }}" data-tag="{{ todo.tag }}">
                         <h4>
                             {{ todo.title }}
                             <div class="icons">
@@ -185,7 +185,7 @@
                 <div class="kanban-cards" id="completed-cards">
                     {% for todo in todo_list %}
                     {% if todo.status == "completed" and user == todo.author %}
-                    <div class="kanban-card" id="{{ todo.id }}">
+                    <div class="kanban-card completed-card" id="{{ todo.id }}" data-tag="{{ todo.tag }}">
                         <h4>
                             {{ todo.title }}
                             <div class="icons">
@@ -201,7 +201,7 @@
                         <p>{{ todo.description }}</p>
                         <div class="kanban-card-lower-part">
                             <div class="kanban-card-tag" style="background-color: {{ todo.tag_color }}">
-                                {{ todo.tag}}
+                                {{ todo.tag }}
                             </div>
 
                             <div class="icons">

@@ -78,23 +78,23 @@ body{
   align-items: center;
 }
 
-.dash:hover, .dash{
+.dash:hover, .dash.active{
   background-color: #FFF9DE;
 }
 
-.personal:hover, #personal:active{
+.personal:hover, .personal.active{
   background-color: #D2CEFF;
 }
 
-.work:hover, .work:active{
+.work:hover, .work.active{
   background-color: #D1E5F7;
 }
 
-.school:hover, .school:active{
+.school:hover, .school.active{
   background-color: #FFCECE;
 }
 
-.coding:hover, .coding:active{
+.coding:hover, .coding.active{
   background-color: #DAF2D6;
 }
 
@@ -610,6 +610,10 @@ button {
 /* for strikethrough */
 .completed-card {
   background-color: #f0f0f0; 
-  text-decoration: line-through; 
   opacity: 0.6; 
+}
+
+.completed-card h4,
+.completed-card p {
+  text-decoration: line-through;
 }

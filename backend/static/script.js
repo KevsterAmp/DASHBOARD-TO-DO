@@ -111,38 +111,39 @@
 //   return Date.now().toString(36) + Math.random().toString(36).substring(2);
 // }
 
-// const categoryLinks = document.querySelectorAll('.menu li:not(.auth)');
+const categoryLinks = document.querySelectorAll('.menu li:not(.auth)');
 
-// function filterCardsByCategory(selectedCategory) {
-//   const kanbanCards = document.querySelectorAll('.kanban-card');
+function filterCardsByCategory(selectedCategory) {
+  const kanbanCards = document.querySelectorAll('.kanban-card');
   
-//   kanbanCards.forEach((card) => {
-//     const cardCategory = card.dataset.tag;
-//     if (cardCategory === selectedCategory || selectedCategory === 'All') {
-//       card.style.display = 'block';
-//     } else {
-//       card.style.display = 'none';
-//     }
-//   });
+  kanbanCards.forEach((card) => {
+    const cardCategory = card.dataset.tag;
+    if (cardCategory === selectedCategory || selectedCategory === 'Home') {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
 
 //   const headerTitle = document.querySelector('.header-title h2');
-//   headerTitle.textContent = selectedCategory;
-// }
+//   const originalHeader = headerTitle
+//   headerTitle.textContent = originalHeader.textContent + selectedCategory;
+}
 
-// categoryLinks.forEach((link) => {
-//   link.addEventListener('click', (event) => {
-//     event.preventDefault();
-//     event.stopPropagation(); 
-//     const selectedCategory = link.textContent.trim();
+categoryLinks.forEach((link) => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+    event.stopPropagation(); 
+    const selectedCategory = link.textContent.trim();
     
-//     categoryLinks.forEach((categoryLink) => {
-//       categoryLink.classList.remove('active');
-//     });
-//     link.classList.add('active');
+    categoryLinks.forEach((categoryLink) => {
+      categoryLink.classList.remove('active');
+    });
+    link.classList.add('active');
     
-//     filterCardsByCategory(selectedCategory);
-//   });
-// });
+    filterCardsByCategory(selectedCategory);
+  });
+});
 
 // const homeCategoryLink = document.querySelector('.dash');
 
