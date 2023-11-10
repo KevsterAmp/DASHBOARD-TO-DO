@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView, UpdateView, View, FormView
+from django.views.generic import ListView, UpdateView, View
 from django.views.decorators.http import require_POST
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, redirect
 from django.shortcuts import render, redirect
 
@@ -10,11 +11,11 @@ from .models import Todo
 
 
 # Create your views here.
-class TodosHomeView(ListView):
+class TodosHomeView(LoginRequiredMixin, ListView):
     model = Todo
     template_name = "home.html"
 
-class TodosCreateView(View):
+class TodosCreateView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         return render(request, "todos_create.html")
 
@@ -37,7 +38,7 @@ class TodosCreateView(View):
         return render(request, 'todos_create.html', {'form': form})
 
 
-class TodosEditView(UpdateView):
+class TodosEditView(LoginRequiredMixin, UpdateView):
     model = Todo
     fields = (
         "title",
@@ -46,12 +47,14 @@ class TodosEditView(UpdateView):
     )
     template_name = "todos_edit.html"
 
+@login_required
 @require_POST
 def todo_delete(request, todo_id):
     todo = get_object_or_404(Todo, id=todo_id)
     todo.delete()
     return redirect('home')
 
+@login_required
 @require_POST
 def todo_change_status(request, todo_id, status):
     todo = get_object_or_404(Todo, id=todo_id)

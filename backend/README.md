@@ -43,7 +43,7 @@ py manage.py runserver
 - Delete logic - DONE
 - Add arrows per kanban card to change status from todo, inprogress, complete - DONE
 - Improve login, signup website
-- Redirect to login site when not logged in
+- Redirect to login site when not logged in - DONE 
 - re-implement javascript for tag filter
 
 
